@@ -65,7 +65,6 @@ export function App() {
           onRefresh={refresh}
           onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
           onOpenNewTicket={() => setIsN8nModalOpen(true)}
-          onOpenSettings={() => setIsConnectionModalOpen(true)}
           hasConnectionError={Boolean(error)}
           isConfigured={appConfig.isConfigured}
           realtimeConnected={realtimeConnected}

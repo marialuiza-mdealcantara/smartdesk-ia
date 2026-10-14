@@ -4,10 +4,9 @@ import {
   RotateCw, 
   PlusCircle, 
   Radio, 
-  Database,
-  Calendar,
-  AlertCircle,
-  CheckCircle2
+  Calendar, 
+  AlertCircle, 
+  CheckCircle2 
 } from 'lucide-react';
 import type { NavTab } from './Sidebar';
 import type { PeriodFilter } from '../types/ticket';
@@ -20,7 +19,6 @@ interface HeaderProps {
   onRefresh: () => void;
   onOpenMobileMenu: () => void;
   onOpenNewTicket: () => void;
-  onOpenSettings: () => void;
   hasConnectionError: boolean;
   isConfigured: boolean;
   realtimeConnected: boolean;
@@ -48,7 +46,6 @@ export const Header: React.FC<HeaderProps> = ({
   onRefresh,
   onOpenMobileMenu,
   onOpenNewTicket,
-  onOpenSettings,
   hasConnectionError,
   isConfigured,
   realtimeConnected,
@@ -105,41 +102,33 @@ export const Header: React.FC<HeaderProps> = ({
             <span className="capitalize">{todayFormatted}</span>
           </div>
 
-          {/* Connection Status Pill */}
-          <button
-            onClick={onOpenSettings}
+          {/* Connection Status Indicator */}
+          <div
             title={
-              !isConfigured
-                ? 'Supabase não configurado. Clique para adicionar credenciais.'
-                : hasConnectionError
-                ? 'Erro de conexão ou RLS. Clique para ver detalhes e SQL de correção.'
-                : 'Conectado ao Supabase (public.chamados)'
+              hasConnectionError || !isConfigured
+                ? 'Supabase Indisponível: Não foi possível obter os dados da tabela chamados. Clique em Atualizar para tentar novamente.'
+                : 'Supabase Conectado: Conexão ativa com o projeto Supabase (public.chamados).'
             }
-            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium border transition-colors ${
-              !isConfigured
-                ? 'bg-amber-50 text-amber-700 border-amber-200 hover:bg-amber-100'
-                : hasConnectionError
-                ? 'bg-rose-50 text-rose-700 border-rose-200 hover:bg-rose-100'
-                : 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'
+            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium border select-none ${
+              hasConnectionError || !isConfigured
+                ? 'bg-rose-50 text-rose-700 border-rose-200'
+                : 'bg-emerald-50 text-emerald-700 border-emerald-200'
             }`}
           >
-            {!isConfigured ? (
+            {hasConnectionError || !isConfigured ? (
               <>
-                <Database className="w-3.5 h-3.5 text-amber-500" />
-                <span className="hidden xs:inline">Configurar</span> Supabase
-              </>
-            ) : hasConnectionError ? (
-              <>
+                <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
                 <AlertCircle className="w-3.5 h-3.5 text-rose-500" />
-                <span>Erro Conexão</span>
+                <span>Supabase Indisponível</span>
               </>
             ) : (
               <>
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
                 <span>Supabase Conectado</span>
               </>
             )}
-          </button>
+          </div>
 
           {/* Manual Refresh Button */}
           <button
