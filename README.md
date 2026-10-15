@@ -168,8 +168,8 @@ using (true);
 
 ### 1. Clonar o repositório
 ```bash
-git clone https://github.com/SEU_USUARIO/smartdesk-ai.git
-cd smartdesk-ai
+git clone https://github.com/marialuiza-mdealcantara/smartdesk-ia.git
+cd smartdesk-ia
 ```
 
 ### 2. Configurar as variáveis de ambiente
