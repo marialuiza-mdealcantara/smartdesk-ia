@@ -243,3 +243,11 @@ O dashboard calcula seus indicadores exclusivamente a partir dos registros reais
 ## 📄 Licença
 
 Este projeto está sob a licença MIT. Consulte o arquivo `LICENSE` para mais detalhes.
+
+## 📸 Demonstração
+
+Confira as capturas de tela, os indicadores do dashboard e o fluxo de automação na página de demonstração.
+
+➡️ [**Ver demonstração do SmartDesk AI**](DEMONSTRACAO.md)
+
+🎥 [Assistir ao vídeo no YouTube](https://youtu.be/8HmBd0GEog4)
