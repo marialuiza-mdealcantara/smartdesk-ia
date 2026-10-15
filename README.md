@@ -179,17 +179,16 @@ Crie um arquivo `.env` na raiz do projeto a partir do exemplo:
 cp .env.example .env
 ```
 
-Preencha com os dados do seu projeto:
 
 ```env
 # URL do projeto no Supabase (Project Settings > API)
-VITE_SUPABASE_URL=https://seu-projeto.supabase.co
+VITE_SUPABASE_URL= https://rhtchuxcgevgxxybjqnj.supabase.co
 
 # Anon Public Key (Publishable Key) do Supabase
-VITE_SUPABASE_ANON_KEY=sb_publishable_...
+VITE_SUPABASE_ANON_KEY= sb_publishable_DWUhkn0HsYAy8cbiU1ApAA_iUxK7mo1
 
 # URL de produção do formulário de abertura de chamados no n8n Cloud
-VITE_N8N_FORM_URL=https://seu-workspace.app.n8n.cloud/form/...
+VITE_N8N_FORM_URL= https://maluulam-mda.app.n8n.cloud/form-test/smartdesk-triagem
 ```
 
 ---
